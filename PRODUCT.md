@@ -37,10 +37,10 @@ Le site est une playlist : chaque section est une piste, et un lecteur fixe en b
 
 - **Stack existante** : Vite, HTML, CSS et JavaScript, avec des îlots React (shadcn / Skiper UI) et GSAP pour les effets. Le CLAUDE.md du projet fixe les contraintes de build (Tailwind sans preflight, variables CSS du site à ne pas écraser, pas de préfixes `-webkit-` écrits à la main).
 - **Déploiement** : GitHub Pages par `.github/workflows/deploy.yml`.
-- **Nom de domaine** : non décidé. Pour l'instant le site est sur GitHub Pages, sans domaine personnalisé. C'est pourtant un critère de notation.
+- **Nom de domaine** : `gautier900.github.io` (le dépôt doit s'appeler `gautier900.github.io` pour servir le site à la racine). L'URL canonique, Open Graph, le sitemap et le CV pointent vers cette adresse.
 - **Lecteur** : la barre de progression suit le défilement et peut se faire glisser ; ⏮ et ⏭ changent de section ; ⏯ met les animations en pause. Le site respecte `prefers-reduced-motion`.
 - **Fiches projet** : elles s'ouvrent dans un panneau (`.sheet`).
-- **Contact** : pas de formulaire. L'adresse e-mail est affichée avec deux actions, « Écrire un e-mail » et « Copier l'adresse ». Aucun serveur ne stocke de données.
+- **Contact** : un formulaire envoyé par Web3Forms (clé d'accès dans le champ caché `access_key` d'`index.html`), l'adresse e-mail avec « Écrire un e-mail » et « Copier l'adresse », le téléphone, GitHub et LinkedIn.
 - **Thèmes** : clair et sombre.
 
 ## Brand Commitments
@@ -53,7 +53,8 @@ Le site est une playlist : chaque section est une piste, et un lecteur fixe en b
 
 - **Projets réels** : stage APRR (groupe Eiffage), automatisation des tests de MAESTRO (C#, .NET, Selenium, Azure DevOps), avril à juin 2026, code confidentiel ; UnderSpace, en ligne et open source (https://gautier900.github.io/UnderSpace/, https://github.com/gautier900/UnderSpace) ; une API de gestion de boutique (équipe de 5) ; PuissanceX (Java, JavaFX, IA).
 - **Fichiers** : `public/assets/cv.pdf`, `public/assets/photo.webp`, les pochettes de `public/assets/albums/` et la source du CV dans `cv-source/`.
-- **Absents, à ne pas inventer** : les sujets de veille (les deux épisodes sont encore des textes provisoires), les témoignages, les chiffres de résultats et une capture du stage (le code est confidentiel).
+- **Veille** : IA pour coder, nouveautés du web (CSS, WebGPU), sécurité des API (OWASP) ; sources : newsletter TLDR et r/programming.
+- **Absents, à ne pas inventer** : les témoignages, les chiffres de résultats et une capture du stage (le code est confidentiel).
 
 ## Product Principles
 

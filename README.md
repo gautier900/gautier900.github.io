@@ -73,7 +73,7 @@ Points à connaître :
 
 ## Contact
 
-Il n'y a pas de formulaire : GitHub Pages n'exécute pas de code serveur. La section Contact affiche l'adresse e-mail avec deux actions, « Écrire un e-mail » (lien `mailto:`) et « Copier l'adresse ». Pour changer d'adresse, modifier le bloc `.mailcard` dans `index.html`, attribut `data-copy` compris.
+GitHub Pages n'exécute pas de code serveur : le formulaire passe par [Web3Forms](https://web3forms.com), qui transmet les messages par e-mail. Pour l'activer, créer une clé d'accès sur web3forms.com et la copier dans le champ caché `access_key` du formulaire (`index.html`). Tant que la clé vaut `WEB3FORMS_ACCESS_KEY`, le formulaire affiche un message qui renvoie vers l'adresse e-mail. L'adresse est aussi affichée dans le bloc `.mailcard--direct` (« Écrire un e-mail » et « Copier l'adresse », attribut `data-copy` compris).
 
 ## Déployer sur GitHub Pages
 

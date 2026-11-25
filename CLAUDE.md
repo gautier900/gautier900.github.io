@@ -4,6 +4,8 @@ Installés dans `.claude/skills/` (sources dans `skills-lock.json`, mise à jour
 - **fixing-motion-performance** : si une animation saccade ou avant d'en ajouter une (sortie et rotation du CD `.album__disc` / `.disc` sur l'accueil, glissement du panneau `.sheet`).
 - **fixing-accessibility** : en ajoutant un contrôle, un formulaire ou une modale. Recoupe en partie `web-design-guidelines` (installé globalement).
 - **fixing-metadata** : pour les balises `<head>` d'`index.html` (Open Graph, image de partage, URL canonique, JSON-LD).
+- **copywriting** : pour rédiger ou retoucher un texte du site (À propos, fiches projet, veille). ⚠ pensé pour des pages marketing en anglais : n'en garder que les règles (affirmations vérifiables, pas de tics d'IA). Aucun fait inventé (voir PRODUCT.md).
+- **seo** : mots-clés des titres, `robots.txt` et `sitemap.xml` (dans `public/`). Recoupe `fixing-metadata`.
 
 ## Build et composants shadcn / Skiper UI
 Vite (`npm run dev`, port 5500). Le site reste en HTML/CSS/JS ; les composants React s'affichent dans des îlots `<div data-island="nom">` déclarés dans `src/islands.tsx` (marche à suivre dans le README).

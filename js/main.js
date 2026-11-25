@@ -311,12 +311,85 @@
   // Gérée par js/effects.js (GSAP ScrollTrigger.batch). Sans ce script,
   // ou en mouvement réduit, tout le contenu reste simplement visible.
 
-  /* ---------- Formulaire de contact ---------- */
+  /* ---------- Formulaire de contact (Web3Forms) ---------- */
+  const form = $('form.form');
+  if (form) {
+    const status = $('.form__status', form);
+    const submitBtn = $('[type="submit"]', form);
+    const submitLabel = $('[data-submit-label]', form);
+    const key = form.elements.namedItem('access_key').value;
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const checks = [
+      [form.elements.namedItem('name'), (v) => v ? '' : 'Indiquez votre nom.'],
+      [form.elements.namedItem('email'), (v) => !v ? 'Indiquez votre adresse e-mail.' : EMAIL_RE.test(v) ? '' : 'Cette adresse ne semble pas complète (exemple : nom@domaine.fr).'],
+      [form.elements.namedItem('message'), (v) => v ? '' : 'Écrivez votre message.'],
+    ];
+
+    const setStatus = (text, kind) => {
+      status.textContent = text;
+      status.className = `mailcard__status form__status${kind ? ` is-${kind}` : ''}`;
+    };
+    const showError = (field, msg) => {
+      $(`#${field.id}-err`).textContent = msg;
+      if (msg) field.setAttribute('aria-invalid', 'true');
+      else field.removeAttribute('aria-invalid');
+    };
+    const validate = () => {
+      let firstInvalid = null;
+      checks.forEach(([field, rule]) => {
+        const msg = rule(field.value.trim());
+        showError(field, msg);
+        if (msg && !firstInvalid) firstInvalid = field;
+      });
+      return firstInvalid;
+    };
+
+    // Une erreur affichée disparaît dès que le champ devient correct
+    checks.forEach(([field, rule]) => {
+      field.addEventListener('input', () => {
+        if (field.hasAttribute('aria-invalid')) showError(field, rule(field.value.trim()));
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const invalid = validate();
+      if (invalid) { invalid.focus(); return; }
+      if (key === 'WEB3FORMS_ACCESS_KEY') {
+        setStatus('Le formulaire n\'est pas encore activé : écrivez-moi directement à gautier.beley06@gmail.com.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+      submitLabel.textContent = 'Envoi…';
+      setStatus('');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.success) throw new Error(data.message || 'envoi');
+        form.reset();
+        setStatus('Merci, votre message est bien parti. Je vous réponds rapidement.', 'ok');
+      } catch {
+        setStatus('L\'envoi a échoué. Réessayez, ou écrivez-moi directement à gautier.beley06@gmail.com.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        form.removeAttribute('aria-busy');
+        submitLabel.textContent = 'Envoyer';
+      }
+    });
+  }
+
   /* ---------- Contact : copier l'adresse e-mail ---------- */
-  const copyBtn = $('[data-copy]');
-  const copyLabel = $('[data-copy-label]');
-  const copyStatus = $('.mailcard__status');
-  const address = $('.mailcard__address');
+  const direct = $('.mailcard--direct');
+  const copyBtn = direct && $('[data-copy]', direct);
+  const copyLabel = direct && $('[data-copy-label]', direct);
+  const copyStatus = direct && $('.mailcard__status', direct);
+  const address = direct && $('.mailcard__address', direct);
   let copyTimer;
 
   const selectAddress = () => {

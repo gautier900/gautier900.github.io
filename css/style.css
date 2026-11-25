@@ -489,7 +489,7 @@ a:hover { text-decoration-thickness: 2.5px; }
 .disco__item:hover .disco__year { animation: spin 3s linear infinite; }
 
 /* ---------- Podcasts (veille) ---------- */
-.episodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.episodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 1rem; }
 .episode {
   --h: 175;
   display: flex; gap: 1.1rem; align-items: flex-start;
@@ -525,6 +525,29 @@ a:hover { text-decoration-thickness: 2.5px; }
 .mailcard__status { font-weight: 500; min-height: 1.5em; margin: 0; }
 .mailcard__status.is-ok { color: var(--accent-text); }
 .mailcard__status.is-error { color: var(--text); }
+
+/* Formulaire à droite sur toute la hauteur, e-mail direct sous les liens à gauche */
+.contact > .form { grid-column: 2; grid-row: 1 / span 2; }
+.contact > .mailcard--direct { grid-column: 1; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field { display: grid; gap: .4rem; }
+.field label { font-weight: 600; color: var(--text); font-size: .95rem; }
+.field input, .field textarea {
+  width: 100%; min-height: 48px; padding: .7rem .9rem;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg-2); color: var(--text);
+  transition: border-color .2s;
+}
+.field textarea { resize: vertical; min-height: 8.5rem; }
+.field input:hover, .field textarea:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.field input:focus-visible, .field textarea:focus-visible { outline-offset: 1px; border-color: var(--accent); }
+.field [aria-invalid="true"] { border-color: #e5484d; }
+.field__error { margin: 0; font-size: .88rem; font-weight: 500; color: var(--text); }
+.field__error:empty { display: none; }
+.field__error::before { content: "⚠ "; color: #e5484d; }
+.form__trap { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.form__note { margin: 0; font-size: .85rem; color: var(--muted); }
+.form [type="submit"]:disabled { opacity: .7; cursor: progress; }
+.episode code { font-family: var(--font-mono); font-size: .9em; color: var(--text); }
 
 /* ---------- Pied de page ---------- */
 .footer { padding: 2.5rem 0 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .92rem; }
@@ -679,6 +702,8 @@ a:hover { text-decoration-thickness: 2.5px; }
   .sleeve { padding: 1rem; }
   .sleeve__sub { font-size: .62rem; white-space: nowrap; }
   .about, .contact { grid-template-columns: 1fr; }
+  .contact > .form, .contact > .mailcard--direct { grid-column: auto; grid-row: auto; }
+  .form__row { grid-template-columns: 1fr; }
   .about__photo { max-width: 220px; }
 
   .player { grid-template-columns: minmax(0, 1fr) auto; padding: 0 16px; gap: .5rem; }

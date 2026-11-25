@@ -10,6 +10,28 @@
   <meta property="og:title" content="Gautier Beley — Développeur Full Stack">
   <meta property="og:description" content="Étudiant en 3e année de BUT Informatique. Stage chez APRR, UnderSpace, API REST : mes projets en playlist.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gautier900.github.io/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Gautier Beley · Portfolio">
+  <meta property="og:image" content="https://gautier900.github.io/assets/photo.webp">
+  <meta property="og:image:alt" content="Portrait de Gautier Beley">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://gautier900.github.io/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gautier Beley",
+    "jobTitle": "Développeur Full Stack",
+    "url": "https://gautier900.github.io/",
+    "image": "https://gautier900.github.io/assets/photo.webp",
+    "email": "mailto:gautier.beley06@gmail.com",
+    "address": { "@type": "PostalAddress", "addressRegion": "Territoire de Belfort", "addressCountry": "FR" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "IUT Nord Franche-Comté" },
+    "knowsAbout": ["Java", "JavaScript", "C#", ".NET", "API REST", "Automatisation de tests", "Selenium", "Three.js"],
+    "sameAs": ["https://github.com/gautier900", "https://www.linkedin.com/in/gautier-beley"]
+  }
+  </script>
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0e13" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -421,25 +443,32 @@
         <header class="section__head" data-num="05">
           <p class="kicker">Piste 05 · Podcasts</p>
           <h2 id="titre-veille">Veille informatique</h2>
-          <p class="section__intro">Les sources que je suis et ce que j'en retiens.</p>
+          <p class="section__intro">Les trois sujets que je suis de près, ce que j'en retiens, et où je les lis.</p>
         </header>
 
         <div class="episodes">
-          <!-- TODO contenu : deux sujets de veille réels (titre, date, ce que j'en retiens) -->
           <article class="episode" style="--h:320">
             <span class="cover cover--md" aria-hidden="true">Ép.1</span>
             <div>
-              <p class="episode__meta">Épisode 01 · Date · 5 min de lecture</p>
-              <h3 class="episode__title">Titre d'un sujet de veille</h3>
-              <p>Résumé en deux lignes de ce que j'ai appris et pourquoi c'est intéressant.</p>
+              <p class="episode__meta">Épisode 01 · IA &amp; développement</p>
+              <h3 class="episode__title">Coder avec un assistant IA</h3>
+              <p>Les assistants comme Claude Code ou GitHub Copilot écrivent maintenant des fonctions entières. Ce que j'en retiens : <strong>relire et tester ce code compte plus que jamais</strong>. C'est justement ce que j'ai fait pendant mon stage en automatisant des tests.</p>
             </div>
           </article>
           <article class="episode" style="--h:200">
             <span class="cover cover--md" aria-hidden="true">Ép.2</span>
             <div>
-              <p class="episode__meta">Épisode 02 · Date · 4 min de lecture</p>
-              <h3 class="episode__title">Titre d'un sujet de veille</h3>
-              <p>Résumé en deux lignes.</p>
+              <p class="episode__meta">Épisode 02 · Web</p>
+              <h3 class="episode__title">Ce que les navigateurs savent faire seuls</h3>
+              <p>Le CSS gère désormais des effets qui demandaient du JavaScript : sélecteur <code>:has()</code>, requêtes de conteneur, transitions entre les vues. Côté 3D, <strong>WebGPU</strong> arrive dans tous les navigateurs, une piste pour les planètes d'UnderSpace.</p>
+            </div>
+          </article>
+          <article class="episode" style="--h:175">
+            <span class="cover cover--md" aria-hidden="true">Ép.3</span>
+            <div>
+              <p class="episode__meta">Épisode 03 · Sécurité</p>
+              <h3 class="episode__title">Les failles les plus courantes des API</h3>
+              <p>D'après l'OWASP, la faille n°1 des API, c'est d'oublier de vérifier que l'objet demandé appartient bien à l'utilisateur. Ce que j'en retiens pour mes prochaines API : <strong>vérifier les droits à chaque requête</strong>, et pas seulement à la connexion.</p>
             </div>
           </article>
           <article class="episode" style="--h:275">
@@ -447,7 +476,7 @@
             <div>
               <p class="episode__meta">Mes sources</p>
               <h3 class="episode__title">Ce que je lis chaque jour</h3>
-              <p>Des newsletters et des communautés Reddit consacrées au développement.</p>
+              <p>La newsletter <a href="https://tldr.tech/" target="_blank" rel="noopener">TLDR</a>, un résumé quotidien de l'actualité tech, et la communauté <a href="https://www.reddit.com/r/programming/" target="_blank" rel="noopener">r/programming</a> sur Reddit.</p>
             </div>
           </article>
         </div>
@@ -469,8 +498,46 @@
             <div data-island="contact-links"></div>
           </div>
 
-          <div class="mailcard">
-            <h3 class="mailcard__title">Par e-mail</h3>
+          <!-- Formulaire envoyé par Web3Forms (pas de serveur sur GitHub Pages) : js/main.js l'envoie sans quitter la page.
+               Sans JavaScript, il est envoyé normalement et Web3Forms affiche sa page de confirmation. -->
+          <form class="mailcard form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-labelledby="form-titre">
+            <h3 class="mailcard__title" id="form-titre">Envoyer un message</h3>
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Portfolio : nouveau message">
+            <input type="hidden" name="from_name" value="Portfolio Gautier Beley">
+            <!-- Piège à robots : champ invisible, laissé vide par un humain -->
+            <input type="checkbox" name="botcheck" class="form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form__row">
+              <div class="field">
+                <label for="f-nom">Nom</label>
+                <input id="f-nom" name="name" type="text" autocomplete="name" required aria-describedby="f-nom-err">
+                <p class="field__error" id="f-nom-err"></p>
+              </div>
+              <div class="field">
+                <label for="f-mail">E-mail</label>
+                <input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="f-mail-err">
+                <p class="field__error" id="f-mail-err"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" rows="5" required aria-describedby="f-msg-err"></textarea>
+              <p class="field__error" id="f-msg-err"></p>
+            </div>
+
+            <div class="mailcard__actions">
+              <button class="btn btn--primary" type="submit">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 21 3l-8.5 18-2-7.5z"/></svg>
+                <span data-submit-label>Envoyer</span>
+              </button>
+            </div>
+            <p class="mailcard__status form__status" role="status" aria-live="polite"></p>
+            <p class="form__note">Le message passe par le service Web3Forms, qui me le transmet par e-mail. Votre nom et votre adresse servent seulement à vous répondre.</p>
+          </form>
+
+          <div class="mailcard mailcard--direct">
+            <h3 class="mailcard__title">Ou directement par e-mail</h3>
             <a class="mailcard__address" href="mailto:gautier.beley06@gmail.com">gautier.beley06@gmail.com</a>
             <div class="mailcard__actions">
               <a class="btn btn--primary" href="mailto:gautier.beley06@gmail.com?subject=Portfolio%20%E2%80%94%20contact">
