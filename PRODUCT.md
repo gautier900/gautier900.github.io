@@ -53,7 +53,7 @@ Le site est une playlist : chaque section est une piste, et un lecteur fixe en b
 
 - **Projets réels** : stage APRR (groupe Eiffage), automatisation des tests de MAESTRO (C#, .NET, Selenium, Azure DevOps), avril à juin 2026, code confidentiel ; UnderSpace, en ligne et open source (https://gautier900.github.io/UnderSpace/, https://github.com/gautier900/UnderSpace) ; une API de gestion de boutique (équipe de 5) ; PuissanceX (Java, JavaFX, IA).
 - **Fichiers** : `public/assets/cv.pdf`, `public/assets/photo.webp`, les pochettes de `public/assets/albums/` et la source du CV dans `cv-source/`.
-- **Veille** : IA pour coder, nouveautés du web (CSS, WebGPU), sécurité des API (OWASP) ; sources : newsletter TLDR et r/programming.
+- **Veille** : IA pour coder, nouveautés du web (CSS, WebGPU), sécurité des API (OWASP) ; sources : Alsacréations et r/programming.
 - **Absents, à ne pas inventer** : les témoignages, les chiffres de résultats et une capture du stage (le code est confidentiel).
 
 ## Product Principles

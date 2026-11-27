@@ -547,6 +547,7 @@ a:hover { text-decoration-thickness: 2.5px; }
 .form__trap { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .form__note { margin: 0; font-size: .85rem; color: var(--muted); }
 .form [type="submit"]:disabled { opacity: .7; cursor: progress; }
+.episode__src { margin-top: .6rem; font-family: var(--font-mono); font-size: .78rem; color: var(--muted); }
 .episode code { font-family: var(--font-mono); font-size: .9em; color: var(--text); }
 
 /* ---------- Pied de page ---------- */
